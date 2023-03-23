@@ -1,11 +1,21 @@
-# Create your first NFT game.
+# UNCHAIN NFTs
 
-![](https://i.imgur.com/cNZxLk5.png)
+## Configurations
 
-このコースを始めるには、下記のステップを実行してください。
+- eslint
+- solhint
+- prettier
+- yarn workspaces
+  - client
+  - contract
 
-1. あなたのGithubアカウントにこのレポジトリをフォークしましょう。
-2. クローンしたレポジトリをあなたのローカル環境にダウンロードしましょう。
-3. ターミナルを開き、ディレクトリのルートで `npm install` を実行します。
-2. `npm run start` を実行してプロジェクトを開始します。
-3. コーディングを始めましょう。
+## Setup
+
+```
+yarn install
+yarn simple-git-hooks
+```
+
+## Architecture
+
+`docs/`を参照
