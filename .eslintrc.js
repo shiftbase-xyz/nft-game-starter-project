@@ -14,7 +14,7 @@ module.exports = {
   rules: {
     'node/no-unsupported-features/es-syntax': [
       'error',
-      { ignores: ['modules'] },
+      { version: '>=8.3.0', ignores: ['modules'] },
     ],
     'node/no-unpublished-require': [
       'warn',
