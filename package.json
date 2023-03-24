@@ -1,43 +1,39 @@
 {
-  "name": "ETH-NFT-game",
-  "version": "1.0.0",
-  "description": "\"sample of ETH-NFT-game\"",
-  "main": "\"\"",
-  "license": "UNLICENSED",
+  "name": "nft-game-starter",
+  "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^4.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.51.0",
-    "@typescript-eslint/parser": "^5.51.0",
-    "eslint": "^7.11.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-n": "^15.6.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-promise": "^6.1.1",
-    "lint-staged": "^13.1.0",
-    "prettier": "^2.8.3",
-    "prettier-plugin-solidity": "^1.1.2",
-    "simple-git-hooks": "^2.8.1"
-  },
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
-  "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "ethers": "^5.4.7",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "contract": "yarn workspace contract",
-    "client": "yarn workspace client",
-    "client:dev": "yarn workspace client dev",
-    "prettier": "prettier --ignore-unknown --no-error-on-unmatched-pattern --ignore-path .prettierignore --write .",
-    "prettier:check": "prettier --ignore-unknown --no-error-on-unmatched-pattern --ignore-path .prettierignore --check .",
-    "lint": "eslint .",
-    "lint:fix": "eslint --fix .",
-    "test": "yarn workspace contract test"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
