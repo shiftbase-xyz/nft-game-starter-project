@@ -57,7 +57,6 @@ describe('MyEpicGame', () => {
     hpAfter = NFTInfo.hp.toNumber();
 
     expect(hpBefore - hpAfter).to.equal(50);
-    console.log(`info:${NFTInfo}`);
   });
 
   // ボスのHPがなくなった時に、ボスへの攻撃ができないことを確認
