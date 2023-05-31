@@ -4,7 +4,7 @@
 
 このコースを始めるには、下記のステップを実行してください。
 
-1. あなたのGithubアカウントにこのレポジトリをフォークしましょう。
+1. あなたの Github アカウントにこのレポジトリをフォークしましょう。
 
 2. クローンしたレポジトリをあなたのローカル環境にダウンロードしましょう。
 
@@ -14,5 +14,6 @@
 
 5. コーディングを始めましょう。
 
-----
-Banner logo created by modifying  "3dicons - Open source 3D icon library" © [vijay verma](https://www.figma.com/community/file/1030350068466019692) (Licensed under CC BY 4.0).
+---
+
+Banner logo created by modifying "3dicons - Open source 3D icon library" © [vijay verma](https://www.figma.com/community/file/1030350068466019692) (Licensed under CC BY 4.0).

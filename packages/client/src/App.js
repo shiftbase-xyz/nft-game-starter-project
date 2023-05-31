@@ -1,6 +1,7 @@
 import React from 'react';
-import twitterLogo from './assets/twitter-logo.svg';
+
 import './App.css';
+import twitterLogo from './assets/twitter-logo.svg';
 
 // Constants
 const TWITTER_HANDLE = 'あなたのTwitterハンドル';
@@ -11,13 +12,10 @@ const App = () => {
     <div className="App">
       <div className="container">
         <div className="header-container">
-        <p className="header gradient-text">⚡️ METAVERSE GAME ⚡️</p>
+          <p className="header gradient-text">⚡️ METAVERSE GAME ⚡️</p>
           <p className="sub-text">プレイヤーと協力してボスを倒そう✨</p>
           <div className="connect-wallet-container">
-            <img
-              src="https://i.imgur.com/TXBQ4cC.png"
-              alt="LUFFY"
-            />
+            <img src="https://i.imgur.com/TXBQ4cC.png" alt="LUFFY" />
           </div>
         </div>
         <div className="footer-container">
