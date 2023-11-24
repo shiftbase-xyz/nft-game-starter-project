@@ -27,7 +27,7 @@ describe('MyEpicGame', () => {
       attackDamage: 25,
     },
   ];
-
+  // テストで使用するボスの情報を定義
   const bigBoss = {
     name: 'CROCODILE',
     imageURI: 'https://i.imgur.com/BehawOh.png',
@@ -41,7 +41,7 @@ describe('MyEpicGame', () => {
       'MyEpicGame',
     );
 
-    // Hardhat がローカルの Ethereum ネットワークを、コントラクトのためだけに作成します。
+    // Hardhat がローカルの Ethereum ネットワークを、コントラクトのためだけに作成
     const gameContract = await gameContractFactory.deploy(
       // キャラクターの名前
       [characters[0].name, characters[1].name, characters[2].name],
@@ -102,10 +102,10 @@ describe('MyEpicGame', () => {
   it('attack was successful', async () => {
     const { gameContract } = await loadFixture(deployTextFixture);
 
-    // 3体のNFTキャラクターの中から、3番目のキャラクターを Mint しています。
+    // 3体のNFTキャラクターの中から、3番目のキャラクターを Mint する
     let txn = await gameContract.mintCharacterNFT(2);
 
-    // Minting が仮想マイナーにより、承認されるのを待ちます。
+    // Minting が仮想マイナーにより、承認されるのを待つ
     await txn.wait();
 
     // mintしたNFTにおける、攻撃前と後のhpを取得する
@@ -130,10 +130,10 @@ describe('MyEpicGame', () => {
   it('check boss attack does not happen if boss hp is smaller than 0', async () => {
     const { gameContract } = await loadFixture(deployTextFixture);
 
-    // 3体のNFTキャラクターの中から、1番目のキャラクターを Mint しています。
+    // 3体のNFTキャラクターの中から、1番目のキャラクターを Mint する
     let txn = await gameContract.mintCharacterNFT(0);
 
-    // Minting が仮想マイナーにより、承認されるのを待ちます。
+    // Minting が仮想マイナーにより、承認されるのを待つ
     await txn.wait();
 
     // 1回目の攻撃: attackBoss 関数を追加
@@ -142,7 +142,7 @@ describe('MyEpicGame', () => {
 
     // 2回目の攻撃: attackBoss 関数を追加
     // ボスのhpがなくなった時に、エラーが発生することを確認
-    txn = expect(gameContract.attackBoss()).to.be.revertedWith(
+    expect(gameContract.attackBoss()).to.be.revertedWith(
       'Error: boss must have HP to attack characters.',
     );
   });
@@ -151,10 +151,10 @@ describe('MyEpicGame', () => {
   it('check boss attack does not happen if character hp is smaller than 0', async () => {
     const { gameContract } = await loadFixture(deployTextFixture);
 
-    // 3体のNFTキャラクターの中から、2番目のキャラクターを Mint しています。
+    // 3体のNFTキャラクターの中から、2番目のキャラクターを Mint する
     let txn = await gameContract.mintCharacterNFT(1);
 
-    // Minting が仮想マイナーにより、承認されるのを待ちます。
+    // Minting が仮想マイナーにより、承認されるのを待つ
     await txn.wait();
 
     // 1回目の攻撃: attackBoss 関数を追加
@@ -163,7 +163,7 @@ describe('MyEpicGame', () => {
 
     // 2回目の攻撃: attackBoss 関数を追加
     // キャラクターのhpがなくなった時に、エラーが発生することを確認
-    txn = expect(gameContract.attackBoss()).to.be.revertedWith(
+    expect(gameContract.attackBoss()).to.be.revertedWith(
       'Error: character must have HP to attack boss.',
     );
   });
