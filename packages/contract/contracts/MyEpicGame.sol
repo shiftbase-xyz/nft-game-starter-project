@@ -11,8 +11,6 @@ import './libraries/Base64.sol';
 import '@openzeppelin/contracts/utils/Counters.sol';
 import '@openzeppelin/contracts/utils/Strings.sol';
 
-import 'hardhat/console.sol';
-
 // MyEpicGameコントラクトは、NFTの標準規格であるERC721を継承します。
 contract MyEpicGame is ERC721 {
   struct CharacterAttributes {
