@@ -118,12 +118,6 @@ contract MyEpicGame is ERC721 {
       attackDamage: defaultCharacters[_characterIndex].attackDamage
     });
 
-    console.log(
-      'Minted NFT w/ tokenId %s and characterIndex %s',
-      newItemId,
-      _characterIndex
-    );
-
     // NFTの所有者を簡単に確認できるようにします。
     nftHolders[msg.sender] = newItemId;
 
@@ -137,18 +131,6 @@ contract MyEpicGame is ERC721 {
     CharacterAttributes storage player = nftHolderAttributes[
       nftTokenIdOfPlayer
     ];
-    console.log(
-      '\nPlayer w/ character %s about to attack. Has %s HP and %s AD',
-      player.name,
-      player.hp,
-      player.attackDamage
-    );
-    console.log(
-      'Boss %s has %s HP and %s AD',
-      bigBoss.name,
-      bigBoss.hp,
-      bigBoss.attackDamage
-    );
 
     // 2. プレイヤーのHPが0以上であることを確認する。
     require(player.hp > 0, 'Error: character must have HP to attack boss.');
@@ -167,11 +149,6 @@ contract MyEpicGame is ERC721 {
     } else {
       player.hp = player.hp - bigBoss.attackDamage;
     }
-
-    // プレイヤーの攻撃をターミナルに出力する。
-    console.log('Player attacked boss. New boss hp: %s', bigBoss.hp);
-    // ボスの攻撃をターミナルに出力する。
-    console.log('Boss attacked player. New player hp: %s\n', player.hp);
   }
 
   function checkIfUserHasNFT()
