@@ -79,12 +79,6 @@ contract MyEpicGame is ERC721 {
       maxHp: bossHp,
       attackDamage: bossAttackDamage
     });
-    console.log(
-      'Done initializing boss %s w/ HP %s, img %s',
-      bigBoss.name,
-      bigBoss.hp,
-      bigBoss.imageURI
-    );
 
     // ゲームで扱う全てのキャラクターをループ処理で呼び出し、それぞれのキャラクターに付与されるデフォルト値をコントラクトに保存します。
     // 後でNFTを作成する際に使用します。
@@ -98,17 +92,6 @@ contract MyEpicGame is ERC721 {
           maxHp: characterHp[i],
           attackDamage: characterAttackDmg[i]
         })
-      );
-
-      CharacterAttributes memory character = defaultCharacters[i];
-
-      //  ハードハットのconsole.log()では、任意の順番で最大4つのパラメータを指定できます。
-      // 使用できるパラメータの種類: uint, string, bool, address
-      console.log(
-        'Done initializing %s w/ HP %s, img %s',
-        character.name,
-        character.hp,
-        character.imageURI
       );
     }
 
