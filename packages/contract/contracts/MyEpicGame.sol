@@ -11,8 +11,6 @@ import './libraries/Base64.sol';
 import '@openzeppelin/contracts/utils/Counters.sol';
 import '@openzeppelin/contracts/utils/Strings.sol';
 
-import 'hardhat/console.sol';
-
 // MyEpicGameコントラクトは、NFTの標準規格であるERC721を継承します。
 contract MyEpicGame is ERC721 {
   struct CharacterAttributes {
@@ -79,12 +77,6 @@ contract MyEpicGame is ERC721 {
       maxHp: bossHp,
       attackDamage: bossAttackDamage
     });
-    console.log(
-      'Done initializing boss %s w/ HP %s, img %s',
-      bigBoss.name,
-      bigBoss.hp,
-      bigBoss.imageURI
-    );
 
     // ゲームで扱う全てのキャラクターをループ処理で呼び出し、それぞれのキャラクターに付与されるデフォルト値をコントラクトに保存します。
     // 後でNFTを作成する際に使用します。
@@ -98,17 +90,6 @@ contract MyEpicGame is ERC721 {
           maxHp: characterHp[i],
           attackDamage: characterAttackDmg[i]
         })
-      );
-
-      CharacterAttributes memory character = defaultCharacters[i];
-
-      //  ハードハットのconsole.log()では、任意の順番で最大4つのパラメータを指定できます。
-      // 使用できるパラメータの種類: uint, string, bool, address
-      console.log(
-        'Done initializing %s w/ HP %s, img %s',
-        character.name,
-        character.hp,
-        character.imageURI
       );
     }
 
@@ -135,12 +116,6 @@ contract MyEpicGame is ERC721 {
       attackDamage: defaultCharacters[_characterIndex].attackDamage
     });
 
-    console.log(
-      'Minted NFT w/ tokenId %s and characterIndex %s',
-      newItemId,
-      _characterIndex
-    );
-
     // NFTの所有者を簡単に確認できるようにします。
     nftHolders[msg.sender] = newItemId;
 
@@ -154,18 +129,6 @@ contract MyEpicGame is ERC721 {
     CharacterAttributes storage player = nftHolderAttributes[
       nftTokenIdOfPlayer
     ];
-    console.log(
-      '\nPlayer w/ character %s about to attack. Has %s HP and %s AD',
-      player.name,
-      player.hp,
-      player.attackDamage
-    );
-    console.log(
-      'Boss %s has %s HP and %s AD',
-      bigBoss.name,
-      bigBoss.hp,
-      bigBoss.attackDamage
-    );
 
     // 2. プレイヤーのHPが0以上であることを確認する。
     require(player.hp > 0, 'Error: character must have HP to attack boss.');
@@ -184,11 +147,6 @@ contract MyEpicGame is ERC721 {
     } else {
       player.hp = player.hp - bigBoss.attackDamage;
     }
-
-    // プレイヤーの攻撃をターミナルに出力する。
-    console.log('Player attacked boss. New boss hp: %s', bigBoss.hp);
-    // ボスの攻撃をターミナルに出力する。
-    console.log('Boss attacked player. New player hp: %s\n', player.hp);
   }
 
   function checkIfUserHasNFT()
